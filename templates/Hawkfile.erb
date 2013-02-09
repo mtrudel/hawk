@@ -1,0 +1,60 @@
+#
+# Hawkfile
+#
+
+#
+# XCode project information - used to configure how your app is built and signed
+#
+# The signing identity to sign your app with. Defaults to 'iPhone Distribution'
+#signing_identity 'iPhone Distribution'
+
+#
+# AWS Credentials - used to upload your app and associated metadata into S3 so
+# that users can download and install your app
+#
+#access_key_id 'AAAAAAAAAAAAAAAAAAAA'
+#secret_access_key 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+#bucket_name 'mah-bukkit'
+
+#
+# User list - a list of users to send emails to upon successsful upload of a new
+# version of your app. Can be specified as simple email addresses, or optionally
+# as a hash with the value being the UDID of their device. Any specified UDIDs
+# will be checked against the built app, to verify that they are entitled to run
+# the app. Any failures will result in a warning being displayed
+#
+#user 'alice@example.com'
+#user 'bob@example.com'
+#user 'claire@example.com' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
+#
+# Notification settings - parameters describing the email to be sent out. This
+# email will be opened locally on this machine by invoking a 'mailto:' url. Your
+# default mail application will open, allowing you to review and edit the email
+# before sending it. This is usually a good time to describe changes to the app,
+# or to suggest areas for testing and review.
+#
+# The following tags are allowed for replacement. In addition to these tags, any
+# ERB compliant tags will be replaced as well.
+#
+# <%= app_name %>     : The name of the application, taken from the project
+# <%= app_version %>  : The current version of the project, taken from the project's
+#                       Info.plist file
+# <%= repo_version %> : An SCM specific version number taken from the current state
+#                       of the project
+# <%= itms_url %>     : The itms-services: url that users will click on to install
+#                       the application
+#
+
+email_subject "A new update of <%= app_name %> is available for download"
+
+email_body <<EOF
+ A new build of <%= app_name %> is ready to install. Click the followling link
+ on your iOS device to install it:
+
+ <%= itms_url %>
+
+ Please reference '<%= repo_version %>' in any bug reports to help us out.
+
+ Thanks!
+EOF
