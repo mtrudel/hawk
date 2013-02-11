@@ -18,6 +18,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency('aws-sdk', '~> 1.8')
-  gem.add_dependency('xcodeproj', '~> 0.4')
   gem.add_dependency('osx-plist', '~> 1.0')
 end
