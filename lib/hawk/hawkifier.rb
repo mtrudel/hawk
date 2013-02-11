@@ -15,7 +15,7 @@ module Hawk
 
     private
     def files
-      { 'Hawkfile' => ERB.new(File.read(File.join(File.dirname(__FILE__), '..', '..', 'templates', 'Hawkfile.erb'))).result }
+      { 'Hawkfile' => File.read(File.join(File.dirname(__FILE__), '..', '..', 'templates', 'Hawkfile')) }
     end
 
     def write_file_if_not_exist(name, contents)
