@@ -7,6 +7,19 @@
 #
 # The signing identity to sign your app with. Defaults to 'iPhone Distribution'
 #signing_identity 'iPhone Distribution'
+#
+# The project file to load (this is usually found automatically)
+#project 'SampleProject.xcodeproj'
+#
+# The workspace file to use (like project, this is usually found automatically)
+#workspace 'SampleWorkspace.xcworkspace'
+#
+# The scheme to build (required when building a workspace).
+# Run 'xcodebuild --workspace <workspace> -list' to see available schemes
+#scheme 'SampleApplication'
+#
+# The configuration to build. Defaults to 'Release'
+#configuration 'Release'
 
 #
 # AWS Credentials - used to upload your app and associated metadata into S3 so

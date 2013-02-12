@@ -7,6 +7,22 @@ module Hawk
       def signing_identity(identity)
         @signing_identity = identity
       end
+
+      def project(project)
+        @project = project
+      end
+
+      def workspace(workspace)
+        @workspace = workspace
+      end
+
+      def scheme(scheme)
+        @scheme = scheme
+      end
+
+      def configuration(configuration)
+        @configuration = configuration
+      end
     end
 
     def app_name
@@ -59,7 +75,8 @@ module Hawk
         output_dir = Dir.tmpdir
 
         print "Building Xcode project..."
-        output = `/usr/bin/xcodebuild CONFIGURATION_BUILD_DIR=#{output_dir} 2>&1`
+        output = `#{xcode_command} CONFIGURATION_BUILD_DIR=#{output_dir} 2>&1`
+
         if $?.to_i != 0
           puts "error (text follows)"
           abort output
@@ -76,7 +93,16 @@ module Hawk
     end
 
     def project_property(prop)
-      `/usr/bin/xcodebuild -showBuildSettings | grep "\s#{prop} = "`.gsub!(/.* = /, '').chomp
+      `#{xcode_command} -showBuildSettings | grep "\s#{prop} = " 2>&1`.gsub!(/.* = /, '').chomp
+    end
+
+    def xcode_command
+      options = []
+      options << "-project #{@project}" if @project
+      options << "-workspace #{@workspace}" if @workspace
+      options << "-scheme #{@scheme}" if @scheme
+      options << "-configuration #{@configuration || 'Release'}"
+      "/usr/bin/xcodebuild #{options.join(' ')}"
     end
   end
 end
