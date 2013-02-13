@@ -28,6 +28,9 @@
 #access_key_id 'AAAAAAAAAAAAAAAAAAAA'
 #secret_access_key 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 #bucket_name 'mah-bukkit'
+#
+# How many days to wait before deleting the files from S3. Defaults to 30 days
+#delete_after 30
 
 #
 # User list - a list of users to send emails to upon successsful upload of a new

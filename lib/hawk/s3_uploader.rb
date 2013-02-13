@@ -14,6 +14,10 @@ module Hawk
       def bucket_name(name)
         @bucket_name = name
       end
+
+      def delete_after(days)
+        @delete_after = days
+      end
     end
 
     def ipa_url
@@ -43,9 +47,16 @@ module Hawk
     private
 
     def object(name, &block)
-      s3 = AWS::S3.new(:access_key_id => @access_key_id, :secret_access_key => @secret_access_key)
-      bucket = s3.buckets.create @bucket_name
-      obj = bucket.objects[name]
+      prefix = "#{app_name}/#{app_version}/"
+      if !@bucket
+        @s3 ||= AWS::S3.new(:access_key_id => @access_key_id, :secret_access_key => @secret_access_key)
+        @bucket = @s3.buckets.create @bucket_name
+        @bucket.lifecycle_configuration.update do
+          remove_rule prefix
+          add_rule prefix, :id => prefix, :expiration_time => (@delete_after || 30)
+        end
+      end
+      obj = @bucket.objects["#{prefix}#{name}"]
       yield obj
       obj.acl = :public_read
       obj.public_url
