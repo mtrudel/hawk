@@ -12,12 +12,7 @@ Hawk is alpha quality software at this point, although I'm rapidly working
 towards firming up a 1.0 release in the next few weeks (by mid Feb 2013). Some
 features that will be coming in the near future include
 
-### Planned for 0.2
-* Automatic object expiry on S3 for .ipa and plist bundles
-* Support for Xcode workspace files
-
 ### Planned for 0.3
-* Automatic bucket name selection option
 * Tighter ACL support on uploaded files
 
 ### Planned for 0.4
