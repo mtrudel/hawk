@@ -2,8 +2,8 @@
 
 Hawk is a simple iOS ad-hoc distribution tool. Deployments are lightweight,
 backed by S3 storage (sourced from your own AWS account), and notifications of
-new builds happen via email. Beyond a couple of S3 buckets, the only moving
-parts to hawk are local on your machine. Hawk is a lightweight, low-friction way
+new builds happen via email. Beyond an AWS account and an S3 bucket, the only moving
+parts to hawk are on your machine. Hawk is a lightweight, low-friction way
 to make ad-hoc deploys easy.
 
 ## Status
