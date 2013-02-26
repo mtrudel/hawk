@@ -25,7 +25,7 @@ module Hawk
         file = ipa_file
         @ipa_url = object(File.basename(file)) do |obj|
           print "Uploading #{File.basename(file)} to S3..."
-          obj.write(Pathname.new(file))
+          obj.write(Pathname.new(file), :content_type => 'application/octet-stream')
           puts 'done'
         end
       end
