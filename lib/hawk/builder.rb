@@ -64,10 +64,6 @@ module Hawk
       ERB.new(File.read(File.join(File.dirname(__FILE__), '..', '..', 'templates', 'manifest.plist.erb'))).result(binding)
     end
 
-    def itms_url
-      "itms-services://?action=download-manifest&url=#{plist_url}"
-    end
-
     private
 
     def app_file

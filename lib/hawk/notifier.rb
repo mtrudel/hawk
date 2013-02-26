@@ -19,6 +19,10 @@ module Hawk
       end
     end
 
+    def itms_url
+      "itms-services://?#{URI.encode_www_form(:action => "download-manifest", :url => plist_url)}"
+    end
+
     def notify_users
       subject = URI.encode(ERB.new(@email_subject).result(binding)).gsub('?','%3F').gsub('&','%26')
       body = URI.encode(ERB.new(@email_body).result(binding)).gsub('?','%3F').gsub('&','%26')
