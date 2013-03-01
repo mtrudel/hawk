@@ -25,6 +25,11 @@
 # AWS Credentials - used to upload your app and associated metadata into S3 so
 # that users can download and install your app
 #
+# Note that if you don't want to check your key material into source control,
+# you can erase the two access key lines from this file and set some environment
+# variables instead. See http://amazon.rubyforge.org/doc/files/README.html for
+# details. Note that the bucket name is always required
+#
 #access_key_id 'AAAAAAAAAAAAAAAAAAAA'
 #secret_access_key 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 #bucket_name 'mah-bukkit'
@@ -34,14 +39,11 @@
 
 #
 # User list - a list of users to send emails to upon successsful upload of a new
-# version of your app. Can be specified as simple email addresses, or optionally
-# as a hash with the value being the UDID of their device. Any specified UDIDs
-# will be checked against the built app, to verify that they are entitled to run
-# the app. Any failures will result in a warning being displayed
+# version of your app. Specified one email address per line, to keep diffs sane
 #
 #user 'alice@example.com'
 #user 'bob@example.com'
-#user 'claire@example.com' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+#user 'claire@example.com'
 
 #
 # Notification settings - parameters describing the email to be sent out. This

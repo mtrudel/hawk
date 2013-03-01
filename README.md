@@ -6,19 +6,6 @@ new builds happen via email. Beyond an AWS account and an S3 bucket, the only mo
 parts to hawk are on your machine. Hawk is a lightweight, low-friction way
 to make ad-hoc deploys easy.
 
-## Status
-
-Hawk is alpha quality software at this point, although I'm rapidly working
-towards firming up a 1.0 release in the next few weeks (by mid Feb 2013). Some
-features that will be coming in the near future include
-
-### Planned for 0.3
-* Tighter ACL support on uploaded files
-
-### Planned for 0.4
-* UDID validation
-* Internal refactor
-
 ## Installation
 
 Install hawk on your machine by either running `gem install hawk`, or else by
