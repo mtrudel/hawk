@@ -1,4 +1,5 @@
 require 'uri'
+require 'cgi'
 
 module Hawk
   module Notifier
@@ -21,6 +22,10 @@ module Hawk
 
     def itms_url
       "itms-services://?#{URI.encode_www_form(:action => "download-manifest", :url => plist_url)}"
+    end
+
+    def escaped_ipa_url
+      CGI.escapeHTML(ipa_url)
     end
 
     def notify_users

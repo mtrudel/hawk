@@ -58,8 +58,7 @@ module Hawk
       end
       obj = @bucket.objects["#{prefix}#{name}"]
       yield obj
-      obj.acl = :public_read
-      obj.public_url
+      obj.url_for(:read, :expires => 86400 * (@delete_after || 30)).to_s
     end
   end
 end
