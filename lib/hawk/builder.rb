@@ -50,7 +50,7 @@ module Hawk
         the_app_file = app_file # Do this before below so output happens in the right order
 
         print "Signing app..."
-        output = `/usr/bin/xcrun -sdk iphoneos PackageApplication -v -s "#{@signing_identity || "iOS Distribution"}" -o #{@ipa_file} #{the_app_file} 2>&1`
+        output = `/usr/bin/xcrun -sdk iphoneos PackageApplication -v -s "#{@signing_identity || "iPhone Distribution"}" -o #{@ipa_file} #{the_app_file} 2>&1`
         if $?.to_i != 0
           puts "error (text follows)"
           abort output
