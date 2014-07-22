@@ -5,8 +5,8 @@
 #
 # XCode project information - used to configure how your app is built and signed
 #
-# The signing identity to sign your app with. Defaults to 'iPhone Distribution'
-#signing_identity 'iPhone Distribution'
+# The signing identity to sign your app with. Defaults to 'iOS Distribution'
+#signing_identity 'iOS Distribution'
 #
 # The project file to load (this is usually found automatically)
 #project 'SampleProject.xcodeproj'
