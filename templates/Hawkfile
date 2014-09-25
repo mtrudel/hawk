@@ -60,8 +60,8 @@
 #                       Info.plist file
 # <%= repo_version %> : An SCM specific version number taken from the current state
 #                       of the project
-# <%= itms_url %>     : The itms-services: url that users will click on to install
-#                       the application
+# <%= webpage_url %>  : The url of an S3 hosted page which will redirect the user to
+#                       install the application when opened on an iOS device
 #
 
 email_subject "A new update of <%= app_name %> is available for download"
