@@ -19,4 +19,5 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency('aws-sdk', '~> 1.8')
   gem.add_dependency('osx-plist', '~> 1.0')
+  gem.add_dependency('googl', '~> 0')
 end

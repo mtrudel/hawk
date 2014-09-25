@@ -70,7 +70,7 @@ email_body <<EOF
  A new build of <%= app_name %> is ready to install. Click the followling link
  on your iOS device to install it:
 
- <%= itms_url %>
+ <%= webpage_url %>
 
  Please reference '<%= repo_version %>' in any bug reports to help us out.
 

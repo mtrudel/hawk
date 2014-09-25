@@ -1,4 +1,5 @@
 require 'aws/s3'
+require 'googl'
 
 module Hawk
   module S3Uploader
@@ -42,6 +43,19 @@ module Hawk
         end
       end
       @plist_url
+    end
+
+    def webpage_url
+      if (!@webpage_url) 
+        @webpage_url = object('install.html') do |obj|
+          webpage_data = build_webpage
+          print 'Uploading install page to S3...'
+          obj.write(webpage_data, :content_type => 'text/html')
+          puts 'done'
+        end
+        @webpage_url = Googl.shorten(@webpage_url).short_url
+      end
+      @webpage_url
     end
 
     private

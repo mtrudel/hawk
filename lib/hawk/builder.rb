@@ -64,6 +64,18 @@ module Hawk
       ERB.new(File.read(File.join(File.dirname(__FILE__), '..', '..', 'templates', 'manifest.plist.erb'))).result(binding)
     end
 
+    def itms_url
+      "itms-services://?#{URI.encode_www_form(:action => "download-manifest", :url => plist_url)}"
+    end
+
+    def escaped_ipa_url
+      CGI.escapeHTML(ipa_url)
+    end
+
+    def build_webpage
+      ERB.new(File.read(File.join(File.dirname(__FILE__), '..', '..', 'templates', 'install.html.erb'))).result(binding)
+    end
+
     private
 
     def app_file
