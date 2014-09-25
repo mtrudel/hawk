@@ -67,7 +67,7 @@
 email_subject "A new update of <%= app_name %> is available for download"
 
 email_body <<EOF
- A new build of <%= app_name %> is ready to install. Click the followling link
+ A new build of <%= app_name %> is ready to install. Click the following link
  on your iOS device to install it:
 
  <%= webpage_url %>
