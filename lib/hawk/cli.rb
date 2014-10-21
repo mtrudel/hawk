@@ -1,10 +1,36 @@
+require 'optparse'
+
 module Hawk
   module CLI
+    module Options
+      def self.parse!(args)
+        options = {}
+        optparse = OptionParser.new do |opts|
+          opts.banner = "Usage: hawk [options]"
+
+          opts.on( '-h', '--help', 'Display this screen' ) do
+            puts opts
+            exit
+          end
+        end
+        begin
+          optparse.parse!(args)
+        rescue 
+          puts $!
+          puts optparse
+          exit
+        end
+
+        options
+      end
+    end
+
     def self.run(args)
+      options = Options.parse!(ARGV)
       hawkfile = closest_hawkfile(Dir.pwd)
       if (hawkfile)
         Dir.chdir(File.dirname(hawkfile))
-        Hawk::DSL.load(hawkfile)
+        Hawk::DSL.load(hawkfile, options)
       else
         puts "Cannot find hawkfile"
       end

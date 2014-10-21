@@ -8,11 +8,15 @@ module Hawk
     include Hawk::S3Uploader::DSL
     include Hawk::Notifier::DSL
 
-    def self.load(file)
-      instance = self.new
+    def self.load(file, options)
+      instance = self.new(options)
       instance.instance_eval(File.read(file), file)
 
       instance.execute
+    end
+
+    def initialize(opts = {})
+      @options = opts
     end
 
     def execute
