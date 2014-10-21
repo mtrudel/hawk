@@ -1,4 +1,5 @@
 require 'tmpdir'
+require 'fileutils'
 require 'osx/plist'
 
 module Hawk
@@ -57,6 +58,7 @@ module Hawk
         end
         puts "done"
       end
+      FileUtils.copy(@ipa_file, Dir.pwd) if @options[:preserve_ipa]
       @ipa_file
     end
 

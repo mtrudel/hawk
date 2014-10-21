@@ -8,6 +8,11 @@ module Hawk
         optparse = OptionParser.new do |opts|
           opts.banner = "Usage: hawk [options]"
 
+          options[:preserve_ipa] = false
+          opts.on( '-p', '--preserve-ipa', 'Leave a copy of the .ipa file in the current directory' ) do
+            options[:preserve_ipa] = true
+          end
+
           opts.on( '-h', '--help', 'Display this screen' ) do
             puts opts
             exit
