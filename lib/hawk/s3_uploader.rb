@@ -37,6 +37,7 @@ module Hawk
       if (!@plist_url) 
         @plist_url = object('manifest.plist') do |obj|
           plist_data = build_plist
+          File.write(File.join(Dir.pwd, 'manifest.plist'), plist_data) if @options[:preserve_manifest]
           print 'Uploading plist to S3...'
           obj.write(plist_data, :content_type => 'application/xml')
           puts 'done'

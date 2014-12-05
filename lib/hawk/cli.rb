@@ -13,6 +13,11 @@ module Hawk
             options[:preserve_ipa] = true
           end
 
+          options[:preserve_manifest] = false
+          opts.on( '-m', '--preserve-manifest', 'Leave a copy of the manifest.plist file in the current directory' ) do
+            options[:preserve_manifest] = true
+          end
+
           opts.on( '-h', '--help', 'Display this screen' ) do
             puts opts
             exit
