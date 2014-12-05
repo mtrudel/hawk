@@ -24,6 +24,10 @@ module Hawk
       def configuration(configuration)
         @configuration = configuration
       end
+
+      def vendor_name(name)
+        @vendor_name = name
+      end
     end
 
     def app_name
@@ -40,6 +44,10 @@ module Hawk
 
     def repo_version
       `git rev-parse --short HEAD`.chomp
+    end
+
+    def vendor_name
+      @vendor_name
     end
 
     def ipa_file

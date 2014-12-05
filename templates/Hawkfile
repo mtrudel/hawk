@@ -38,6 +38,12 @@
 #delete_after 30
 
 #
+# Vendor name - an optional value to be displayed alongside the app name during
+# the install process
+#
+#vendor_name "ABC Co"
+
+#
 # User list - a list of users to send emails to upon successsful upload of a new
 # version of your app. Specified one email address per line, to keep diffs sane
 #
