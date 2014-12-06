@@ -28,6 +28,14 @@ module Hawk
       def vendor_name(name)
         @vendor_name = name
       end
+
+      def icon_path(path)
+        @icon_path = path
+      end
+
+      def fullsize_image_path(path)
+        @fullsize_image_path = path
+      end
     end
 
     def app_name
@@ -48,6 +56,22 @@ module Hawk
 
     def vendor_name
       @vendor_name
+    end
+
+    def icon_path
+      @icon_path
+    end
+
+    def escaped_icon_url
+      (icon_path)? CGI.escapeHTML(icon_url) : 'https://raw.githubusercontent.com/mtrudel/hawk/master/templates/icon.png'
+    end
+
+    def fullsize_image_path
+      @fullsize_image_path
+    end
+
+    def escaped_fullsize_image_url
+      (fullsize_image_path)? CGI.escapeHTML(fullsize_image_url) : 'https://raw.githubusercontent.com/mtrudel/hawk/master/templates/fullsize_image.png'
     end
 
     def ipa_file

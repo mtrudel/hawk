@@ -59,6 +59,30 @@ module Hawk
       @webpage_url
     end
 
+    def icon_url
+      if (!@icon_url) 
+        file = icon_path
+        @icon_url = object(File.basename(file)) do |obj|
+          print "Uploading #{File.basename(file)} to S3..."
+          obj.write(Pathname.new(file), :content_type => 'image/png')
+          puts 'done'
+        end
+      end
+      @icon_url
+    end
+
+    def fullsize_image_url
+      if (!@fullsize_image_url) 
+        file = fullsize_image_path
+        @icon_url = object(File.basename(file)) do |obj|
+          print "Uploading #{File.basename(file)} to S3..."
+          obj.write(Pathname.new(file), :content_type => 'image/png')
+          puts 'done'
+        end
+      end
+      @fullsize_image_url
+    end
+
     private
 
     def object(name, &block)

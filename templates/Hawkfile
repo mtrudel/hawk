@@ -44,6 +44,21 @@
 #vendor_name "ABC Co"
 
 #
+# Icon path - the path (relative to this Hawkfile) that a 57x57px PNG formatted
+# app icon can be found, to be used during the app install. This is optional,
+# and if omitted a plain white icon will be used in its stead
+#
+#icon_path 'path/to/icon.png'
+
+#
+# Full size icon image path - the path (relative to this Hawkfile) that
+# a 512x512x PNG formatted app icon can be found. to be used during the app
+# install. This is optional, and if omitted a plain white icon will be used in
+# its stead
+#
+#fullsize_image_path 'path/to/fullsize_image.png'
+
+#
 # User list - a list of users to send emails to upon successsful upload of a new
 # version of your app. Specified one email address per line, to keep diffs sane
 #
