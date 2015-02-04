@@ -38,6 +38,12 @@
 #delete_after 30
 
 #
+# Bundle ID Fix - enable a workaround that causes OTA install to fail on certain
+# ios8 devices. See http://stackoverflow.com/questions/25772664/enterprise-app-update-distribution-on-ios-8
+# for more information. Disabled by default
+#bundle_id_fix false
+
+#
 # Vendor name - an optional value to be displayed alongside the app name during
 # the install process
 #

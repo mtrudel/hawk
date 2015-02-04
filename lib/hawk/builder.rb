@@ -25,6 +25,10 @@ module Hawk
         @configuration = configuration
       end
 
+      def bundle_id_fix(fix)
+        @bundle_id_fix = fix
+      end
+
       def vendor_name(name)
         @vendor_name = name
       end
@@ -47,7 +51,11 @@ module Hawk
     end
 
     def bundle_identifier
-      info_plist_property('CFBundleIdentifier')
+      if @bundle_id_fix
+        info_plist_property('CFBundleIdentifier') + '.ios8fix'
+      else
+        info_plist_property('CFBundleIdentifier')
+      end
     end
 
     def repo_version
