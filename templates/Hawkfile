@@ -89,6 +89,7 @@
 #                       of the project
 # <%= webpage_url %>  : The url of an S3 hosted page which will redirect the user to
 #                       install the application when opened on an iOS device
+# <%= short_webpage_url %>  : A goo.gl shortened url pointing to webpage_url
 #
 
 email_subject "A new update of <%= app_name %> is available for download"

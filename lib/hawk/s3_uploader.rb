@@ -54,9 +54,15 @@ module Hawk
           obj.write(webpage_data, :content_type => 'text/html')
           puts 'done'
         end
-        @webpage_url = Googl.shorten(@webpage_url).short_url
       end
       @webpage_url
+    end
+
+    def short_webpage_url
+      if (!@short_webpage_url) 
+        @short_webpage_url = Googl.shorten(webpage_url).short_url
+      end
+      @short_webpage_url
     end
 
     def icon_url
